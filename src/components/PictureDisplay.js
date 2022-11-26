@@ -35,9 +35,26 @@ function PictureDisplay({ size, featherCount, featherColors }) {
   for (let i = 0; i < featherCount; i++) {
     colors.push(featherColors[i % featherColors.length]);
   }
+  let theSize;
+  switch (size) {
+    case 's':
+      theSize = 'small';
+      break;
+    case 'm':
+      theSize = 'medium';
+      break;
+    case 'l':
+      theSize = 'large';
+      break;
+    case 'xl':
+      theSize = 'xlarge';
+      break;
+    default:
+      theSize = '';
+  }
 
   return (
-    <div className={`image-area medium`}>
+    <div className={`image-area ${theSize}`}>
       {colors.map((c, i) => (
         <img
           key={feathers[i]}
